@@ -1,14 +1,3 @@
-html, body {
-    margin: 0;
-    height: 100dvh;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(196, 169, 117, 0.5), rgba(255, 165, 74, 0.5), rgba(196, 169, 117, 0.5));
-    background-size: 200% 200%;
-    animation: gradientMove 10s ease infinite;
-}
-
-
-
 @keyframes gradientMove {
     0% {
         background-position: 0% 50%;
@@ -22,6 +11,17 @@ html, body {
         background-position: 0% 50%;
     }
 }
+
+
+html, body {
+    margin: 0;
+    height: 100dvh;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(196, 169, 117, 0.5), rgba(255, 165, 74, 0.5), rgba(196, 169, 117, 0.5));
+    background-size: 100% 100%;
+    animation: gradientMove 10s ease infinite;
+}
+
 
 * {
     box-sizing: border-box;
@@ -37,7 +37,10 @@ main {
 
 .page {
     position: absolute;
-    inset: 0;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,12 +65,14 @@ main {
 .card {
     width: min(40rem, 90vw);
     min-height: 30vh;
-    max-height: 75vh;
+    max-height: calc(100dvh - 140px);
     padding: 35px;
+    padding-top: 20px;
+    gap: 15px;
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 18px;
     overflow-y: auto;
@@ -92,7 +97,7 @@ main {
 
 .card h1 {
     margin: 0;
-    font-size: 42px;
+    font-size: 45px;
 }
 
 
@@ -114,6 +119,7 @@ nav {
     border-radius: 999px;
     box-shadow: 0 10px 20px #0000004d;
     overflow: hidden;
+    transition: all 0.4s ease;
 }
 
 nav ul {
@@ -148,7 +154,7 @@ nav a:hover {
     left: 8px;
 
     height: calc(100% - 16px);
-    width: 50px;
+    width: 0;
 
     border-radius: 999px;
 
@@ -204,40 +210,32 @@ nav a:hover {
 .pfp {
     width: 145px;
     height: 145px;
-
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
-
-    margin-bottom: 5px;
+    bottom: -5px;
 }
 
 
 .pfp-image {
     width: 145px;
     height: 145px;
-
     border-radius: 50%;
     object-fit: cover;
-
     box-shadow: 0 10px 20px #0000004d;
-
     z-index: 1;
 }
-
 
 .pfp-decoration {
     width: 175px;
     height: 175px;
-
     position: absolute;
-
     pointer-events: none;
     z-index: 2;
 }
 
-
-button {
+.box-btn {
     margin-top: 10px;
     background: rgba(255,255,255,.1);
     border: 1px solid rgba(255,255,255,.2);
@@ -249,61 +247,33 @@ button {
     transition: transform .2s ease, background .2s ease;
 }
 
-button:hover {
+.box-btn:hover {
     transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.2);
 }
 
-.spotify-card {
-    width: 100%;
-    max-width: 500px;
+@media (max-width: 480px) {
+    nav {
+        top: 12px;
+    }
 
-    margin: 20px auto 0;
+    nav a {
+        padding: 8px 14px;
+        font-size: 16px;
+    }
 
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    .page {
+        top: 80px;
+        bottom: 15px;
+    }
 
-    padding: 15px;
+    .card {
+        max-height: calc(100dvh - 110px);
+        border-radius: 30px;
+        padding: 25px 20px;
+    }
 
-    background: rgba(255,255,255,0.08);
-    border-radius: 18px;
-
-    backdrop-filter: blur(10px);
-}
-
-#spotify-cover {
-    width: 70px;
-    height: 70px;
-
-    border-radius: 12px;
-    object-fit: cover;
-}
-
-.spotify-info {
-    flex: 1;
-}
-
-.spotify-info h2 {
-    margin: 0;
-    font-size: 18px;
-}
-
-.spotify-info p {
-    margin: 5px 0 0;
-    opacity: .6;
-}
-
-.spotify-status {
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.spotify-status span {
-    width: 8px;
-    height: 8px;
-    background: #1ed760;
-    border-radius: 50%;
+    .card h1 {
+        font-size: 32px;
+    }
 }

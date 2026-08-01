@@ -16,6 +16,7 @@ function switchPage(pageId) {
     });
 
     const page = document.getElementById(pageId);
+
     if (page) {
         page.classList.add("active");
     }
@@ -29,18 +30,24 @@ function loadFromHash() {
         window.location.hash = "#home";
     }
 
+    switchPage(page);
+
     const activeLink = document.querySelector(`nav a[href="#${page}"]`);
 
-    if (!activeLink) {
-        window.location.hash = "#home";
-        return;
-    }
-
     links.forEach(link => link.classList.remove("active"));
-    activeLink.classList.add("active");
 
-    moveIndicator(activeLink);
-    switchPage(page);
+    if (activeLink) {
+        activeLink.classList.add("active");
+        moveIndicator(activeLink);
+
+        nav.style.opacity = "1";
+        nav.style.pointerEvents = "auto";
+        nav.style.transform = "translateX(-50%) translateY(0)";
+    } else {
+        nav.style.opacity = ".2";
+        nav.style.pointerEvents = "none";
+        nav.style.transform = "translateX(-50%) translateY(-80px)";
+    }
 }
 
 links.forEach(link => {
@@ -54,12 +61,16 @@ links.forEach(link => {
 });
 
 window.addEventListener("hashchange", loadFromHash);
-
 window.addEventListener("load", loadFromHash);
 
 window.addEventListener("resize", () => {
     const active = document.querySelector("nav a.active");
+
     if (active) {
         moveIndicator(active);
     }
 });
+
+function openBlogPost(id) {
+    window.location.hash = id;
+}

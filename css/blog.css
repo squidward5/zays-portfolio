@@ -1,0 +1,55 @@
+.card.blog-post {
+    position: relative;
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 70px;
+}
+ 
+.blog-post .blog-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin-top: 0;
+}
+ 
+.blog-post h1 {
+    text-align: left;
+}
+ 
+.blog-post .blog-date {
+    margin: 0;
+    opacity: 0.7;
+    font-size: 16px;
+}
+ 
+.blog-post p {
+    text-align: left;
+    max-width: none;
+}
+ 
+.blog-back {
+    margin-top: 10px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 15px;
+    padding: 7px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+ 
+.blog-back svg {
+    flex-shrink: 0;
+    display: block;
+    margin-left: -5px;
+}
+ 
+.blog-back:hover {
+    transform: translateX(-2px);
+    background: rgba(255, 255, 255, 0.2);
+}

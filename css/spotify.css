@@ -1,0 +1,103 @@
+.spotify-widget {
+    width: min(40rem, 90vw);
+    padding: 18px 22px;
+    display: none;
+    align-items: center;
+    gap: 18px;
+    background: rgba(195, 152, 108, 0.5);
+    border: 1px solid rgba(129, 100, 71, 0.25);
+    border-radius: 25px;
+    box-shadow: 0 10px 20px #0000004d;
+    text-align: left;
+    transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease;
+}
+
+.spotify-widget:hover {
+    background: rgba(195, 152, 108, 0.7);
+    border: 1px solid rgba(129, 100, 71, 0.4);
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.spotify-widget.visible {
+    display: flex;
+}
+
+.spotify-widget img {
+    width: 85px;
+    height: 85px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.spotify-widget .spotify-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+    flex: 1;
+}
+
+.spotify-widget .spotify-status {
+    font-size: 13px;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.spotify-widget .spotify-song {
+    font-size: 19px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.spotify-widget .spotify-artist {
+    font-size: 15px;
+    opacity: 0.85;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.spotify-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+ 
+.spotify-bar-track {
+    width: 100%;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+}
+ 
+.spotify-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.95));
+    transition: width 1s linear;
+}
+ 
+.spotify-times {
+    display: flex;
+    justify-content: space-between;
+}
+ 
+.spotify-time {
+    font-size: 12px;
+    opacity: 0.7;
+}
+ 
+.spotify-progress {
+    margin-top: 10px;
+}
+ 
