@@ -2,7 +2,6 @@ const nav = document.querySelector("nav");
 const indicator = document.querySelector(".nav-indicator");
 const links = document.querySelectorAll("nav a");
 
-// Move the nav indicator
 function moveIndicator(link) {
     const navRect = nav.getBoundingClientRect();
     const linkRect = link.getBoundingClientRect();
@@ -11,7 +10,6 @@ function moveIndicator(link) {
     indicator.style.left = `${linkRect.left - navRect.left}px`;
 }
 
-// Switch sections
 function switchPage(pageId) {
     document.querySelectorAll(".page").forEach(page => {
         page.classList.remove("active");
@@ -23,7 +21,6 @@ function switchPage(pageId) {
     }
 }
 
-// Load page from hash
 function loadFromHash() {
     let page = window.location.hash.slice(1);
 
@@ -46,7 +43,6 @@ function loadFromHash() {
     switchPage(page);
 }
 
-// Navigation
 links.forEach(link => {
     link.addEventListener("click", e => {
         e.preventDefault();
@@ -57,13 +53,10 @@ links.forEach(link => {
     });
 });
 
-// Browser back/forward support
 window.addEventListener("hashchange", loadFromHash);
 
-// Initial load
 window.addEventListener("load", loadFromHash);
 
-// Keep indicator aligned
 window.addEventListener("resize", () => {
     const active = document.querySelector("nav a.active");
     if (active) {
