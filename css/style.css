@@ -66,15 +66,14 @@ main {
     width: min(40rem, 90vw);
     min-height: 30vh;
     max-height: calc(100dvh - 140px);
-    padding: 35px;
-    padding-top: 20px;
-    gap: 15px;
+    padding: clamp(18px, 3.5vh, 35px);
+    padding-top: clamp(14px, 2vh, 20px);
+    gap: clamp(10px, 2vh, 18px);
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 18px;
     overflow-y: auto;
     background: rgba(195, 152, 108, 0.5);
     border: 1px solid rgba(129, 100, 71, 0.25);
@@ -97,7 +96,7 @@ main {
 
 .card h1 {
     margin: 0;
-    font-size: 45px;
+    font-size: clamp(26px, 5.5vh, 45px);
 }
 
 
@@ -105,6 +104,7 @@ main {
     margin: 0;
     max-width: 600px;
     line-height: 1.6;
+    font-size: clamp(13px, 2vh, 16px);
 }
 
 nav {
@@ -120,6 +120,7 @@ nav {
     box-shadow: 0 10px 20px #0000004d;
     overflow: hidden;
     transition: all 0.4s ease;
+    max-width: 94vw;
 }
 
 nav ul {
@@ -130,6 +131,7 @@ nav ul {
     list-style: none;
     position: relative;
     z-index: 2;
+    flex-wrap: nowrap;
 }
 
 nav a {
@@ -141,6 +143,7 @@ nav a {
     font-size: 20px;
     border-radius: 999px;
     transition: transform 0.2s ease, text-shadow 0.2s ease;
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -193,10 +196,16 @@ nav a:hover {
 
 .socials {
     display: flex;
-    gap: 18px;
+    flex-wrap: wrap;
+    gap: clamp(10px, 2vh, 18px);
     margin-top: 10px;
     justify-content: center;
     align-items: center;
+}
+
+.socials svg {
+    width: clamp(1.8em, 3.5vh, 3em);
+    height: clamp(1.8em, 3.5vh, 3em);
 }
 
 .socials a {
@@ -208,19 +217,20 @@ nav a:hover {
 }
 
 .pfp {
-    width: 145px;
-    height: 145px;
+    width: clamp(90px, 15vh, 145px);
+    height: clamp(90px, 15vh, 145px);
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
     bottom: -5px;
+    flex-shrink: 0;
 }
 
 
 .pfp-image {
-    width: 145px;
-    height: 145px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 10px 20px #0000004d;
@@ -228,8 +238,8 @@ nav a:hover {
 }
 
 .pfp-decoration {
-    width: 175px;
-    height: 175px;
+    width: 121%;
+    height: 121%;
     position: absolute;
     pointer-events: none;
     z-index: 2;
@@ -252,6 +262,43 @@ nav a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
+.location {
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+    padding: 10px 12px;
+    justify-content: center;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+}
+
+.location svg {
+    position: relative;
+    top: -1px;
+}
+
+/* ===== Laptops / tablets ===== */
+@media (max-width: 900px) {
+    .card {
+        width: min(36rem, 92vw);
+    }
+}
+
+/* ===== Tablets / small laptops ===== */
+@media (max-width: 768px) {
+    nav a {
+        padding: 9px 18px;
+        font-size: 18px;
+    }
+
+    .card h1 {
+        font-size: 38px;
+    }
+}
+
+/* ===== Phones (narrow width) ===== */
 @media (max-width: 480px) {
     nav {
         top: 12px;
@@ -268,12 +315,14 @@ nav a:hover {
     }
 
     .card {
-        max-height: calc(100dvh - 110px);
         border-radius: 30px;
-        padding: 25px 20px;
     }
+}
 
-    .card h1 {
-        font-size: 32px;
+/* ===== Very small phones ===== */
+@media (max-width: 360px) {
+    nav a {
+        padding: 6px 10px;
+        font-size: 14px;
     }
 }
