@@ -74,3 +74,34 @@ window.addEventListener("resize", () => {
 function openBlogPost(id) {
     window.location.hash = id;
 }
+
+// skill bars
+
+function playSkillBars() {
+    const bars = document.querySelectorAll(".skill-bar-fill");
+ 
+    bars.forEach((bar) => {
+        bar.style.transition = "none";
+        bar.style.width = "0%";
+    });
+ 
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            bars.forEach((bar) => {
+                bar.style.transition = "";
+                bar.style.width = `${bar.dataset.percent || 0}%`;
+            });
+        });
+    });
+}
+ 
+function checkLanguagesTab() {
+    if (window.location.hash === "#languages") {
+        playSkillBars();
+    }
+}
+
+window.addEventListener("hashchange", checkLanguagesTab);
+ 
+document.addEventListener("DOMContentLoaded", checkLanguagesTab);
+ 

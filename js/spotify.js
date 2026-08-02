@@ -1,6 +1,8 @@
 // big thanks to lanyard for making this possible :)
 // .gg/lanyard
 
+(function () {
+
 const DISCORD_ID = "739917405542678659";
 
 let currentTrack = null;
@@ -15,7 +17,7 @@ function formatTime(ms) {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-const explicitCache = {}; 
+const explicitCache = {};
 
 async function checkExplicit(trackId) {
     const badge = document.getElementById("spotify-explicit");
@@ -60,7 +62,6 @@ function applyPresence(data) {
 
         document.getElementById("spotify-art").src = s.album_art_url;
         document.getElementById("spotify-song").textContent = s.song;
-        console.log("[spotify-widget] raw artist string:", JSON.stringify(s.artist));
         document.getElementById("spotify-artist").textContent = s.artist.replace(/;\s*/g, ", ");
 
         widget.dataset.trackUrl = `https://open.spotify.com/track/${s.track_id}`;
@@ -143,3 +144,5 @@ function connectLanyardSocket() {
 
 setupClickHandler();
 connectLanyardSocket();
+
+})();

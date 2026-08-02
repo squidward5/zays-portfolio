@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="css/spotify.css">
+    <link rel="stylesheet" href="css/music.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
@@ -16,6 +17,7 @@
     <script src="js/titlechanger.js" defer></script>
     <script src="js/spotify.js" defer></script> 
     <script src="js/home.js" defer></script>
+    <script src="js/musicplayer.js" defer></script>
 </head>
 <body>
 
@@ -26,6 +28,7 @@
             <li><a href="#home" class="active">home</a></li>
             <li><a href="#languages">languages</a></li>
             <li><a href="#projects">projects</a></li>
+            <li><a href="#music">music</a></li>
             <li><a href="#blog">blog</a></li>
         </ul>
     </nav>
@@ -45,7 +48,7 @@
                         <p>katy, texas</p>
                     </div>
                     
-                    <p>i'm a 9th grader and i have a huge passion for front-end development, music production, editing, gfx design, and more. i like to see cybersecurity happen real-time and the impact it has on the world.</p>
+                    <p>i'm a 9th grader and i have a huge passion for front-end development, music production, editing, gfx design, and more. i like to find xss vulnerabilities in web applications and show people how to fix them.</p>
                     
                     <div class="socials">
                         <a href="https://github.com/squidward5" target="_blank" rel="noopener noreferrer">
@@ -95,35 +98,58 @@
                 <div class="box">
                     <h2>HTML</h2>
                     <p>i'd say im pretty comfortable with this language. i been using this for several years now.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-percent="90"></div>
+                        <span class="skill-percent">90%</span>
+                    </div>
                 </div>
                 <div class="box">
                     <h2>CSS</h2>
                     <p>i'm fairly comfortable with CSS. i've been using it for a few years and understand its capabilities and limitations.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-percent="85"></div>
+                        <span class="skill-percent">85%</span>
+                    </div>
                 </div>
                 <div class="box">
                     <h2>JavaScript</h2>
                     <p>i kind of hate this language with a burning passion. though its capabilities are quite powerful, i can't seem to stop using it.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-percent="75"></div>
+                        <span class="skill-percent">75%</span>
+                    </div>
                 </div>
                 <div class="box">
                     <h2>Lua-U</h2>
-                    <p>this language is quite interesting. it has a unique syntax and is commonly used for scripting in many applications. though, i do find it quite powerful for the tasks i use it for.</p>
+                    <p>this language is pretty powerful and i used it to create asset scope for roblox. i find it quite useful for creating efficient solutions.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-percent="55"></div>
+                        <span class="skill-percent">55%</span>
+                    </div>
                 </div>
                 <div class="box">
                     <h2>Python</h2>
-                    <p>i've used this for RRA Importer for a blender add-on and it's actually really good for what it's used for.</p>
+                    <p>i've used this for rra importer for a blender add-on and it's actually really good for what it's used for. i might consider using/learning more of python.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-percent="60"></div>
+                        <span class="skill-percent">60%</span>
+                    </div>
                 </div>
             </div>
         </section>
+                
 
         <section class="page" id="blog">
             <div class="card">
                 <h1>blog</h1>
-                <p>coming soon...</p>
-                <!--<div class="box">
-                    <h2>how i made RRA Importer</h2>
-                    <p>where the idea came from, the challenges i faced, the bugs i fixed, and how i built the add-on from the ground up.</p>
+                <p>posts about my experiences and projects.</p>
+                <div class="box">
+                    <h2>how i made rra importer</h2>
+                    <h1 style="font-size: 0.85em; color: #eee;">August 2, 2026</h1>
+                    <p>from a simple community idea to a full blender add-on. here's how i built rra importer, the challenges i faced, and the problems i had to solve along the way.</p>
                     <button class="box-btn" onclick="openBlogPost('post-rra-importer')">view</button>
-                </div> -->
+                </div>
+                <p>more blogs coming soon...</p>
             </div> 
         </section>
 
@@ -143,7 +169,7 @@
                 </div>
                 <div class="box">
                     <h2>asset scope</h2>
-                    <p>a roblox icon fetcher script meant for gfx design. have anything tricky that you can't find the solution for? this script is for you!</p>
+                    <p>a real-time roblox asset discovery and extraction tool script.</p>
                     <button class="box-btn" onclick="window.open('https://github.com/squidward5/asset-scope', '_blank')">visit</button>
                 </div>
                 <div class="box">
@@ -154,20 +180,261 @@
             </div>
         </section>
 
+        <section class="page" id="music">
+            <div class="card">
+                <h1>music</h1>
+                <p>here are some of my favorite songs made by me!</p>
+
+                <div class="music-player" data-src="audio/no-one-is-perfect.mp3">
+                    <img class="music-cover" src="icons/covers/no_one_is_perfect.jpg" alt="no one is perfect cover">
+                    <div class="music-info">
+                        <span class="music-title">no one is perfect</span>
+                        <span class="music-artist">zay</span>
+
+                        <div class="music-progress">
+                            <div class="music-bar-track">
+                                <div class="music-bar-fill"></div>
+                            </div>
+                            <div class="music-times">
+                                <span class="music-current-time">0:00</span>
+                                <span class="music-end-time">0:00</span>
+                            </div>
+                        </div>
+
+                        <div class="music-controls">
+                            <button class="music-btn music-play-pause" aria-label="play">
+                                <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                            <button class="music-btn music-stop" aria-label="stop">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="6" width="12" height="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-player" data-src="audio/starlight.mp3">
+                    <img class="music-cover" src="icons/covers/no_one_is_perfect.jpg" alt="no one is perfect cover">
+                    <div class="music-info">
+                        <span class="music-title">starlight</span>
+                        <span class="music-artist">zay</span>
+
+                        <div class="music-progress">
+                            <div class="music-bar-track">
+                                <div class="music-bar-fill"></div>
+                            </div>
+                            <div class="music-times">
+                                <span class="music-current-time">0:00</span>
+                                <span class="music-end-time">0:00</span>
+                            </div>
+                        </div>
+
+                        <div class="music-controls">
+                            <button class="music-btn music-play-pause" aria-label="play">
+                                <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                            <button class="music-btn music-stop" aria-label="stop">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="6" width="12" height="12"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p>more songs coming soon...</p>
+            </div>
+        </section>
+
         <!-- blog posts -->
 
         <section class="page" id="post-rra-importer">
             <div class="card blog-post">
                 <button class="blog-back" onclick="window.location.hash='blog'">
-                    <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>back</button>
-        
-                <h1>How I Made RRA Importer</h1>
-                <p class="blog-date">June 24, 2026</p>
-        
-                <p>...</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                    back to blog
+                </button>
+
+                <h1>how i made rra importer</h1>
+                <p class="blog-date">august 2, 2026</p>
+
+                <p>
+                    rra importer honestly started because people in the roblox rivals assets community kept asking if there was an easier way to get roblox rivals assets into blender. after seeing the same question so many times, i finally thought, "why not just make it myself?"
+                </p>
+
+                <p>
+                    huge thanks to everyone who tested early versions and kept throwing ideas at me because this add-on would not be what it is without them.
+                </p>
+
+                <p>
+                    all i wanted to do was make importing roblox rivals assets into blender easier. that was literally the whole idea. i had no plans of turning it into a full blender add-on, but after adding one feature after another, it slowly became way bigger than i ever expected.
+                </p>
+
+                <h2>it started way smaller than this</h2>
+
+                <p>
+                    i seriously thought this was going to be a small project that i could finish in a few days. i was very wrong. every time i finished one thing i immediately wanted to add another feature. before i knew it i had a full blender add-on instead of a simple importer.
+                </p>
+
+                <p>
+                    i did not want this to feel like some random script you download once and never use again. i wanted it to actually feel like it belonged inside blender. i spent so much time cleaning up the ui, organizing everything into categories, and making the workflow as simple as possible.
+                </p>
+
+                <h2>building the importer</h2>
+
+                <p>
+                    one of the biggest challenges was making everything import correctly without the user having to do a bunch of extra work. weapons, wraps, skins, rigs, maps, charms, and lootboxes all needed to be handled differently. i wanted people to click one button and have everything just work.
+                </p>
+
+                <p>
+                    the first time i got everything importing correctly was honestly one of my favorite moments while making this project. after spending forever fixing bugs it was really satisfying seeing everything show up exactly how i wanted.
+                </p>
+
+                <h2>exporting weapons and other assets was way harder than i expected</h2>
+
+                <p>
+                    getting the models into blender was honestly the easy part. making everything actually look like it did in roblox studio was a completely different story.
+                </p>
+
+                <p>
+                    one of the biggest challenges was exporting weapon skins. almost every skin looked different after exporting. colors would be off, materials would be wrong, and sometimes the whole weapon looked nothing like it did in game.
+                </p>
+
+                <div class="images">
+                    <img src="icons/blog_images/rra_importer/studio.png" alt="Event Horizon Studio" style="max-width: 100%; height: auto;">
+                    <img src="icons/blog_images/rra_importer/blender.png" alt="Event Horizon Blender" style="max-width: 100%; height: auto;">
+                    <p style="color: #ccc;">preview of the Event Horizon skin from Roblox Studio to Blender</p>
+                </div>
+
+                <p>
+                    because of that, i spent days going through every supported skin one by one and manually fixing the textures until they matched the original as closely as possible. it was probably one of the most repetitive parts of the whole project, but i knew people would notice if i just left them broken.
+                </p>
+
+                <p>
+                    by the time i finished, every supported skin had been individually checked and adjusted by hand. it took way longer than i ever expected, but it was worth it because people could finally import a weapon and have it actually look like the one they saw in roblox studio.
+                </p>
+
+                <h2>the stupid stud texture bug</h2>
+
+                <p>
+                    this was probably the most annoying problem i have ever dealt with while making this add-on. seriously. right when i thought everything was going smoothly, roblox decided to completely break obj exports.
+                </p>
+
+                <p>
+                    whenever i exported a weapon into blender, these weird striped stud textures would randomly show up on materials. it looked horrible. people in my discord server immediately started asking me what happened because their exports suddenly looked completely broken, and at first i honestly had no idea what was causing it.
+                </p>
+
+                <div class="images">
+                    <img src="icons/blog_images/rra_importer/big_crossroads_studs.png" alt="Big Crossroads stud textures" style="max-width: 100%; height: auto;">
+                    <p style="color: #ccc;">preview of the stud textures of Big Crossroads map from Roblox Studio to Blender</p>
+                </div>
+
+                <p>
+                    and to those people who said to export as glTF, roblox does not let you export models if you do not have permission to the meshes and textures:
+                </p>
+
+                <div class="images">
+                    <img src="icons/blog_images/rra_importer/gltf.png" alt="gltf export issue" style="max-width: 100%; height: auto;">
+                </div>
+
+                <p>
+                    after looking around, i found a <a href="https://devforum.roblox.com/t/stud-texture-on-obj-export/4583069" target="_blank" rel="noopener noreferrer" style="color: #0066FF;">roblox devforum post</a> where other developers were reporting the exact same issue that i was having. i was literally watching the bug happen in real time, so at least i knew i was not losing my mind.
+                </p>
+
+                <p>
+                    after spending way too much time looking through the exported files, i noticed something interesting. every one of those stud textures came with both a <code><i>_diff</i></code> texture and a <code><i>_nmap</i></code> texture, and every single one of them had the exact same image dimensions.
+                </p>
+
+                <div class="images">
+                    <img src="icons/blog_images/rra_importer/stud_1.png" alt="Stud texture example" style="max-width: 100%; height: auto;">
+                    <img src="icons/blog_images/rra_importer/stud_2.png" alt="Stud texture example" style="max-width: 100%; height: auto;">
+                </div>
+
+                
+
+                <p>
+                    instead of checking filenames, i wrote a python function that looked at every texture connected to every material on the selected object. if the texture matched those dimensions, the add-on automatically removed it before the import even finished.
+                </p>
+
+                <p>
+                    it ended up being one of my favorite solutions in the whole project. almost no normal texture would ever have dimensions like that, so there was basically no chance of removing a real texture by accident.
+                </p>
+
+                <p>
+                    watching those horrible stud textures disappear automatically after clicking one button was honestly one of the most satisfying moments while making rra importer.
+                </p>
+
+                <h2>the wrap system</h2>
+
+                <p>
+                    this is probably my favorite feature in the whole add-on. i did not want wraps to just be images slapped onto a model. i wanted them to actually be customizable.
+                </p>
+
+                <p>
+                    instead of making people build shader setups themselves, i made the add-on automatically create all of the nodes, connect everything together, and set everything up for them. all they had to do was import the asset and it was ready to go.
+                </p>
+
+                <p>
+                    i also added controls so people could change the wrap scale without having to dig through shader nodes themselves. getting all of that working took way longer than i expected. there were so many times where one tiny thing would break the whole material, but once it finally worked it made wraps so much easier to use.
+                </p>
+
+                <div class="images">
+                    <img src="icons/blog_images/rra_importer/wrap.png" alt="wrap system example" style="max-width: 100%; height: auto;">
+                    <img src="icons/blog_images/rra_importer/wrap_ingame.png" alt="wrap system example 2" style="max-width: 100%; height: auto;">
+                </div>
+
+                <h2>making it look good</h2>
+
+                <p>
+                    i probably spent almost as much time making it look nice as i did actually coding it. i wanted everything to make sense and be easy to find. every button, panel, category, and setting got changed multiple times until i was finally happy with it.
+                </p>
+
+                <p>
+                    one thing i kept asking myself was if someone installed this without knowing who made it, would they think it was a real blender add-on? that was basically my main goal of this project the whole time.
+                </p>
+
+                <h2>the bugs</h2>
+
+                <p>
+                    there were a lot of them.
+                </p>
+
+                <p>
+                    i dealt with blender crashing, undo randomly breaking, materials refusing to work, textures disappearing, and more python errors than i can even remember. i remember spending hours trying to figure out why blender kept crashing just because i changed one thing in the wrap system.
+                </p>
+
+                <p>
+                    as annoying as all of that was, i honestly learned way more because of it. every bug forced me to understand blender a little better and by the end of it i knew way more about the blender api than when i started.
+                </p>
+
+                <h2>the community</h2>
+
+                <p>
+                    a lot of the best features actually came from people in the community. every update usually started because someone suggested something cool or pointed out something that could be improved. seeing people actually use something i made and get excited for updates made all of the late nights coding at 2am worth it.
+                </p>
+
+                <h2>looking back</h2>
+
+                <p>
+                    this is easily one of the biggest projects i have worked on. it taught me so much about blender, python, ui design, and honestly just sticking with something even when it feels impossible.
+                </p>
+
+                <p>
+                    there were definitely moments where i wanted to give up on certain features because they just refused to work, but i am really glad i kept going. seeing people use rra importer today makes all of that time worth it.
+                </p>
+
+                <p>
+                    i still have a lot of ideas that i want to add in the future, so this definitely is not the end of rra importer.
+                </p>
+
+                <h2>thank you</h2>
+
+                <p>
+                    if you actually made it all the way down here, thank you. seriously. rra importer would probably not exist without everyone in the roblox rivals assets community constantly giving me ideas, reporting bugs, and pushing me to make it better. seeing people actually use something i built has made every late night worth it. i still have a lot planned for the add-on, so this definitely is not the end. thanks for reading. zay signing off.
+                </p>
             </div>
         </section>
-        
+                
         
     </main>
 </body>
